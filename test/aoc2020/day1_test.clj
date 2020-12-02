@@ -2,6 +2,12 @@
   (:require [clojure.test :refer :all]
             [aoc2020.day1 :refer :all]))
 
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+(def haystack [1721 979 366 299 675 1456])
+
+(deftest sum-2
+(testing "We find the product of 2 numbers that sum to 2020"
+    (is (= 514579 (-main haystack 2)))))
+
+(deftest sum-3
+(testing "We find the product of 3 numbers that sum to 2020"
+    (is (= 241861950 (-main haystack 3)))))

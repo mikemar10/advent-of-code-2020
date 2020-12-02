@@ -1,4 +1,4 @@
-(ns aoc2020.day.1
+(ns aoc2020.day1
   (:gen-class)
   (:require [clj-http.client :as http]
             [clojure.string :as str]
@@ -15,6 +15,6 @@
 
 (def day (-> *ns* ns-name str (str/split #"\.") last))
 
-(defn -main [n]
+(defn -main [haystack needles]
   (apply * (some #(when (= 2020 (apply + %)) %)
-        (combo/combinations (input day) n))))
+        (combo/combinations haystack needles))))
