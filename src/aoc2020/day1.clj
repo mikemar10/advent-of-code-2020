@@ -13,9 +13,8 @@
 
 (def input (memoize fetch-input))
 
-(defn -main [haystack needles]
-  (apply * (some #(when (= 2020 (apply + %)) %)
-        (combo/combinations haystack needles))))
-
 ; (-main (input 1) 2)
 ; (-main (input 1) 3)
+(defn -main [haystack needles]
+  (apply * (first (filter #(= 2020 (apply + %))
+        (combo/combinations haystack needles)))))
