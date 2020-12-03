@@ -13,8 +13,9 @@
 
 (def input (memoize fetch-input))
 
-(def day (-> *ns* ns-name str (str/split #"\.") last))
-
 (defn -main [haystack needles]
   (apply * (some #(when (= 2020 (apply + %)) %)
         (combo/combinations haystack needles))))
+
+; (-main (input 1) 2)
+; (-main (input 1) 3)
