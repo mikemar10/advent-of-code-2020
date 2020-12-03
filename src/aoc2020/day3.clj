@@ -33,3 +33,13 @@
           (recur (inc trees-hit) (+ vx x) (+ vy y))
         :else
           (recur trees-hit (+ vx x) (+ vy y))))))
+
+(defn alt-main [input vx vy]
+  (let [world (str/replace input "\n" "")
+        width (str/index-of input "\n")
+        height (/ (count world) width)
+        x-values (range 0 ##Inf vx)
+        y-values (range 0 height vy)
+        indices (map #(+ (* width %2) (mod %1 width)) x-values y-values)
+        trees (filter #(= \# (get world %)) indices)]
+        (count trees)))
